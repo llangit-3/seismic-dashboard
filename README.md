@@ -1,35 +1,41 @@
-# Dashboard Seismisitas Indonesia
 
-Dashboard web interaktif untuk memetakan zona seismik Indonesia (clustering) dan
-memperkirakan laju gempa per wilayah (forecast), dengan penalaran statistik eksplisit.
+# Indonesian Seismicity Dashboard
 
-> Disclaimer: alat analisis edukatif, bukan sistem peringatan dini.
+An interactive web dashboard for mapping seismic zones in Indonesia (clustering) and estimating earthquake rates across regions (forecasting), with explicit statistical reasoning.
 
-## Pertanyaan penelitian
-1. Di mana zona seismik aktif Indonesia, dan apa karakter tiap zona (laju, kedalaman, b-value)?
-2. Berapa jumlah gempa M >= 4,5 per sel grid 1 derajat per bulan, dan seberapa baik
-   model dibanding baseline laju historis?
-3. Seberapa besar ketidakpastian estimasi (b-value, laju, prediksi)?
+> Disclaimer: This is an educational analysis tool, not an early warning system.
 
-## Lingkup
-- Wilayah: lintang -11 s/d 6, bujur 95 s/d 141
-- Data: katalog USGS ComCat, 1990 sampai sekarang, unduh M >= 4,0
-- Target: jumlah gempa M >= 4,5 per sel 1 derajat per bulan
-- Split waktu: latih <= 2018, validasi 2019-2021, uji >= 2022
+## Research Questions
 
-## Metrik keberhasilan (ditetapkan sebelum modeling)
-- Model terbaik mengalahkan baseline laju historis pada data uji (Poisson deviance, log-likelihood)
-- Lolos uji kalibrasi dasar (N-test dan L-test ala CSEP, plot kalibrasi)
-- Estimasi kunci dilaporkan dengan interval ketidakpastian
-- Jika model hanya sedikit lebih baik dari baseline, hasil dilaporkan apa adanya
+1. Where are the active seismic zones in Indonesia, and what are the characteristics of each zone (rate, depth, b-value)?
+2. How many earthquakes with M >= 4.5 occur per 1-degree grid cell per month, and how well does the model perform compared to the historical rate baseline?
+3. How large is the uncertainty in the estimated parameters (b-value, earthquake rate, and predictions)?
 
-## Status fase
-- [x] Fase 0: setup
-- [ ] Fase 1: pengambilan data
-- [ ] Fase 2: cleaning dan validasi
-- [ ] Fase 3: statistik katalog
-- [ ] Fase 4: clustering zona seismik
-- [ ] Fase 5: forecasting
-- [ ] Fase 6: dashboard
-- [ ] Fase 7: testing dan dokumentasi
-- [ ] Fase 8: deployment
+## Scope
+
+- **Geographic Region:** Latitude -11 to 6, Longitude 95 to 141
+- **Data Source:** USGS ComCat earthquake catalog, from 1990 to present, with M >= 4.0
+- **Target:** Number of earthquakes with M >= 4.5 per 1-degree grid cell per month
+- **Temporal Split:**
+  - Training: <= 2018
+  - Validation: 2019-2021
+  - Testing: >= 2022
+
+## Success Metrics (Defined Before Modeling)
+
+- The best-performing model must outperform the historical rate baseline on the test dataset, measured using Poisson deviance and log-likelihood.
+- Pass basic calibration tests (N-test and L-test, following the CSEP methodology) and include calibration plots.
+- Key estimates must be reported with uncertainty intervals.
+- If the model only marginally outperforms the baseline, the results will be reported transparently.
+
+## Project Phases
+
+- [x] Phase 0: Setup
+- [ ] Phase 1: Data Acquisition
+- [ ] Phase 2: Data Cleaning and Validation
+- [ ] Phase 3: Catalog Statistics
+- [ ] Phase 4: Seismic Zone Clustering
+- [ ] Phase 5: Earthquake Forecasting
+- [ ] Phase 6: Dashboard Development
+- [ ] Phase 7: Testing and Documentation
+- [ ] Phase 8: Deployment
